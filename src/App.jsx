@@ -1,3 +1,4 @@
+import Navbar from './components/Navbar'
 function App() {
   /* 
     redux consists of following libries
@@ -12,6 +13,10 @@ function App() {
     - create features folders/cart
     - create cartSlice.js
   */
-  return <h2>Redux Toolkit</h2>
+  return (
+    <main>
+      <Navbar />
+    </main>
+  )
 }
 export default App
