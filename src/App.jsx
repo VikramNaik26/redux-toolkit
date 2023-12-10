@@ -1,5 +1,8 @@
+import { useEffect } from 'react'
 import CartContainer from './components/CartContainer'
 import Navbar from './components/Navbar'
+import { useDispatch, useSelector } from 'react-redux'
+import { calculateTotals } from './features/cart/cartSlice'
 function App() {
   /* 
     redux consists of following libries
@@ -14,6 +17,14 @@ function App() {
     - create features folders/cart
     - create cartSlice.js
   */
+
+  const { cartItems } = useSelector((store) => store.cart)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(calculateTotals())
+  }, [cartItems])
+  
   return (
     <main>
       <Navbar />
